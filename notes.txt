@@ -1,0 +1,22 @@
+SSD Key: git@github.com:lukitas1337/movie-journal.git
+
+Functionality:
+
+- Home Page Fetches Data From API
+    - Cards Display:
+        movie.title
+        movie.image
+        movie.year
+
+- Input Field Filters Data by title
+- After submission we need a console.log, return or alert to display dialog
+
+QUESTION: What happens with filter on journal page?
+    - Option 1: Filter Data from local storage
+    - Option 2: Filter API Data - this would have no effect while on Journal page?
+
+- "Add To" Button on cards stores Movie Data in local storage
+
+
+Optional extras:
+- Remove Movies from local storage after clicking button again
