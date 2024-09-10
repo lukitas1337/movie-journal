@@ -35,7 +35,7 @@ function showMovies(data){
 
                     main.appendChild(movieEl);
     })
-  
+
 // get header form and input html element and store both into variables
 const searchForm = document.getElementById("header-form");
 const searchInput = document.getElementById("header-form-input");
@@ -53,3 +53,4 @@ searchForm.addEventListener("submit", (e) => {
     } else {
         getMovies(API_URL);
     }
+})}
