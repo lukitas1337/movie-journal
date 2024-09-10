@@ -30,9 +30,22 @@ function showMovies(data){
                     <p id="release-year" class="py-4">${release_date} 
                     </p>
                     <!-- Button To Add Movies To Local Storage: Local Storage Is Displayed on Journal Page -->
-                    <button id="add-journal-button" class="uppercase px-6 py-1 border-black border-2">Add to favorites</button>
+                    <button id="add-journal-button" class="uppercase px-6 py-1 border-black border-2 add-to-favorites">Add to favorites</button>
                     </div>`
-
                     main.appendChild(movieEl);
+//Setting up a button "Add to favorites" to add a movie to favorites
+const addToFavoritesButton = movieEl.querySelector('.add-to-favorites');
+addToFavoritesButton.addEventListener('click',() => addToFavorites(movie));
+                    
     })
+}
+
+//Add the movie in localStorage
+function addToFavorites(movie){
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites.push(movie);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+//Alert shows that movie added to localStorage
+alert (`${movie.title} has been added to favorites`);
+
 }
