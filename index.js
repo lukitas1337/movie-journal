@@ -47,7 +47,7 @@ function addToFavorites(movie){
     localStorage.setItem('favorites', JSON.stringify(favorites));
 //Alert shows that movie added to localStorage
 alert (`${movie.title} has been added to favorites`);
-
+}
 
 // get header form and input html element and store both into variables
 const searchForm = document.getElementById("header-form");
@@ -59,11 +59,11 @@ searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
 // the string submitted in the form is stored in the variable searchTerm so we can append it to the regular search
-    const searchTerm = searchInput.value;
+const searchTerm = searchInput.value.trim().toLowerCase();
 // if search term exists we add it to search url and use it, otherwise we perform regular search
     if (searchTerm) {
         getMovies(searchURL+searchTerm)
     } else {
         getMovies(API_URL);
     }
-})}
+})
