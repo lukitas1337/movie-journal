@@ -1,24 +1,3 @@
-// Journal Search functionality
-
-// get header form and input html element and store both into variables
-const searchForm = document.getElementById("header-form");
-const searchInput = document.getElementById("header-form-input");
-// the string submitted in the form is stored in the variable searchTerm so we can append it to the regular search
-const searchTerm = searchForm.value;
-
-// get the items from local storage
-const favMovieItem = localStorage.getItem(searchTerm);
-
-
-// manipulate DOM
-// make sure to check if value exists, else do nothing
-if (favMovieItem !== null) {
-    // manipulate the DOM according to search result
-} else {
-    alert("We couldn't find that title in your movies!");
-} 
-
-
 /* ---------------------------------------------------------------- */
 const main = document.getElementById('movie-container-home')
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
@@ -127,3 +106,32 @@ function addReview(movie, movieEl) { // Add movieEl as a parameter
         }
     });
 }
+
+// Get header form and input HTML elements
+const searchForm = document.getElementById("header-form");
+const searchInput = document.getElementById("header-form-input");
+
+searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    // Get the search term from the input field
+    const searchTerm = searchInput.value.trim().toLowerCase();
+
+    // Retrieve the favorites from local storage
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    // Filter the favorites list based on the search term
+    if (searchTerm) {
+        const filteredMovies = favorites.filter(movie => movie.title.toLowerCase().includes(searchTerm));
+        
+        if (filteredMovies.length > 0) {
+            // Show the filtered movies
+            showMovies(filteredMovies);
+        } else {
+            // If no movies are found, show an alert
+            alert("We couldn't find that title in your favorites!");
+        }
+    } else {
+        // If no search term is provided, display all favorites
+        showMovies(favorites);
+    }
+});
