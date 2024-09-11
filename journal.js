@@ -12,17 +12,17 @@ function showMovies(data){
     data.forEach(movie => {
         const {title, poster_path, release_date, review} = movie;
         const movieEl = document.createElement('div');
-        movieEl.classList.add('border-solid', 'border-black', 'border-2', 'text-center', 'bg-slate-50');
+        movieEl.classList.add('relative', 'border-2', 'border-gray-800', 'text-center', 'bg-gray-100', 'p-4', 'shadow-md', 'flex', 'flex-col');
         movieEl.innerHTML = `
-        <img id="movie-image" src="${IMG_URL+poster_path}" alt="${title}">
-                <div class="p-4 border-t-2 border-black border-solid">
-                    <h2 id="movie-title">${title}
+        <img id="movie-image" class="w-full h-auto" src="${IMG_URL+poster_path}" alt="${title}">
+                <div class="flex-grow p-4 border-t-2 border-gray-800 flex flex-col justify-between border-solid">
+                    <h2 id="movie-title" class="text-xl font-semibold">${title}
                     </h2>
-                    <p id="release-year" class="py-4">${release_date} 
+                    <p id="release-year" class="py-4 text-sm">${release_date}
                     </p>
                     <!-- Button To remove the saved movie -->
-                    <button id="removeCard" class=" remove uppercase px-6 py-1 bg-red-500 hover:bg-red-800  border-black border-2 ">Remove</button>
-                    <button id="add-Review" class=" addReview uppercase mt-2 px-6 py-1 bg-gray-400 hover:bg-gray-300  border-black border-2 ">Add review</button>
+                    <button id="removeCard" class=" remove uppercase px-6 py-2 bg-red-500 hover:bg-red-800  border-gray-800 border-2 text-white ">Remove</button>
+                    <button id="add-Review" class=" addReview uppercase mt-2 px-6 py-2 bg-gray-400 hover:bg-gray-300  border-black border-2 ">Add review</button>
                     </div>`
                     main.appendChild(movieEl);
 
@@ -42,7 +42,7 @@ removeButton .addEventListener('click',() => removeFromFavorites(movie));
 const addReviewButton = movieEl.querySelector('.addReview');
 addReviewButton.addEventListener('click', () => addReview(movie, movieEl)); // Pass movieEl as an argument
 
-                    
+
     })
 }
 
@@ -63,7 +63,7 @@ function addReview(movie, movieEl) { // Add movieEl as a parameter
     const reviewInput = document.createElement('textarea');
     reviewInput.placeholder = 'Write your review here...';
     reviewInput.classList.add('review-input', 'border', 'border-gray-500', 'w-full', 'p-2', 'my-2');
-    
+
     // Create a button to submit the review
     const submitReviewButton = document.createElement('button');
     submitReviewButton.innerText = 'Submit Review';
@@ -122,7 +122,7 @@ searchForm.addEventListener("submit", (e) => {
     // Filter the favorites list based on the search term
     if (searchTerm) {
         const filteredMovies = favorites.filter(movie => movie.title.toLowerCase().includes(searchTerm));
-        
+
         if (filteredMovies.length > 0) {
             // Show the filtered movies
             showMovies(filteredMovies);
