@@ -5,49 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Journal | Journal</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 </head>
 <!-- Page To Display Movie Cards That Got Saved To Local Storage Before -->
-<body class="px-16 bg-slate-100">
-    <header id="header" class="py-4 px-8 flex justify-between bg-slate-200">
+<body class="bg-gray-900 text-black">
+    <header id="header" class="py-4 px-8 flex justify-between bg-slate-800">
         <nav id="nav">
             <ul class="flex gap-4 uppercase py-1">
-                <li class="py-1"><a href="index.html">Home</a></li>
-                <li class="py-1"><a href="journal.html">Journal</a></li>
+                <li class="py-1"><a href="index.html" class="text-white hover:text-yellow-300">Home</a></li>
+                <li class="py-1"><a href="journal.html" class="text-white hover:text-yellow-300">Journal</a></li>
             </ul>
         </nav>
         <form id="header-form" class="items-end">
-            <input id="header-form-button" class="border-black border-2 text-center px-6 py-1 uppercase mr-1 hover:cursor-pointer" type="submit" value="Submit">
-            <input id="header-form-input" class="border-black border-2 text-center px-6 py-1 uppercase m-1" placeholder="Enter movie title" type="text">	
+            <input id="header-form-button" class="border-gray-500 border-2 text-center px-6 py-1 uppercase mr-1 hover:cursor-pointer bg-yellow-400 text-black hover:bg-yellow-300" type="submit" value="Search">
+            <input id="header-form-input" class="border-gray-500 border-2 text-center px-6 py-1 uppercase m-1 bg-gray-800 text-gray-100" placeholder="Enter movie title" type="text">
         </form>
     </header>
     <main>
-        <div id="movie-container-home" class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-4 p-8 bg-slate-300">
-            <div id="movie-card" class="border-solid border-black border-2 text-center bg-slate-50">
-                <img id="movie-image" src="https://m.media-amazon.com/images/M/MV5BZGM3MjQ3NTQtNzRiZi00MDUzLWFjYjEtZWJjMjUwYzExYjRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg" alt="">
-                <div class="p-4 border-t-2 border-black border-solid">
+        <div id="movie-container-home" class="grid xl:grid-cols-6 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-4 p-8 bg-gray-700">
+            <div id="movie-card" class="relative border-2 border-gray-800 text-center bg-gray-100 p-4 shadow-md flex flex-col">
+                <img id="movie-image" class="w-full h-auto" src="https://m.media-amazon.com/images/M/MV5BZGM3MjQ3NTQtNzRiZi00MDUzLWFjYjEtZWJjMjUwYzExYjRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg" alt="">
+                <div class="flex-grow p-4 border-t-2 border-gray-800 flex flex-col justify-between border-solid">
                     <h2 id="movie-title">Pokémon: The First Movie - Mewtwo Strikes Back
                     </h2>
-                    <p id="release-year" class="py-4"> - 1998 - 
+                    <p id="release-year" class="py-4"> - 1998 -
                     </p>
                     <button id="add-journal-button" class="uppercase px-6 py-1 border-black border-2">Add to favorites</button>
                 </div>
-            </div> 
+            </div>
             <div id="movie-card" class="border-solid border-black border-2 text-center bg-slate-50">
                 <img id="movie-image" src="https://m.media-amazon.com/images/M/MV5BZGM3MjQ3NTQtNzRiZi00MDUzLWFjYjEtZWJjMjUwYzExYjRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg" alt="">
                 <div class="p-4 border-t-2 border-black border-solid">
                     <h2 id="movie-title">Pokémon: The First Movie - Mewtwo Strikes Back
                     </h2>
-                    <p id="release-year" class="py-4"> - 1998 - 
+                    <p id="release-year" class="py-4"> - 1998 -
                     </p>
                     <button id="add-journal-button" class="uppercase px-6 py-1 border-black border-2">Add to favorites</button>
                 </div>
-            </div> 
+            </div>
             <div id="movie-card" class="border-solid border-black border-2 text-center bg-slate-50">
                 <img id="movie-image" src="https://m.media-amazon.com/images/M/MV5BZGM3MjQ3NTQtNzRiZi00MDUzLWFjYjEtZWJjMjUwYzExYjRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg" alt="">
                 <div class="p-4 border-t-2 border-black border-solid">
                     <h2 id="movie-title">Pokémon: The First Movie - Mewtwo Strikes Back
                     </h2>
-                    <p id="release-year" class="py-4"> - 1998 - 
+                    <p id="release-year" class="py-4"> - 1998 -
                     </p>
                     <button id="add-journal-button" class="uppercase px-6 py-1 border-black border-2">Add to favorites</button>
                 </div>
