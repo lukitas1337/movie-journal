@@ -21,8 +21,10 @@ function showMovies(data){
                     <p id="release-year" class="py-4 text-sm">${release_date}
                     </p>
                     <!-- Button To remove the saved movie -->
-                    <button id="removeCard" class=" remove uppercase px-6 py-2 bg-red-500 hover:bg-red-800  border-gray-800 border-2 text-white ">Remove</button>
-                    <button id="add-Review" class=" addReview uppercase mt-2 px-6 py-2 bg-gray-400 hover:bg-gray-300  border-black border-2 ">Add review</button>
+                    <div class= "flex flex-col items-center mt-auto space-y-2">
+                    <button id="removeCard" class=" remove uppercase w-full px-6 py-2 bg-red-500 hover:bg-red-800 text-white ">Remove</button>
+                    <button id="add-Review" class=" addReview uppercase w-full mt-2 px-6 py-2 bg-gray-400 hover:bg-gray-300 ">Add review</button>
+                    </div>
                     </div>`
                     main.appendChild(movieEl);
 
