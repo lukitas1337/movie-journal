@@ -36,18 +36,35 @@ function showMovies(data){
                     main.appendChild(movieEl);
 //Setting up a button "Add to favorites" to add a movie to favorites
 const addToFavoritesButton = movieEl.querySelector('.add-to-favorites');
-addToFavoritesButton.addEventListener('click',() => addToFavorites(movie));
 
-    })
+//Check if movie is already in favorites
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+if (favorites.find(favorite => favorite.id === movie.id)) {
+    addToFavoritesButton.textContent = 'Added to favorites';
+    addToFavoritesButton.disabled = true;
+    addToFavoritesButton.classList.remove ('bg-yellow-400', 'hover:bg-yellow-500');
+    addToFavoritesButton.classList.add ('bg-gray-400');
+}
+//Add event listener to the button
+addToFavoritesButton.addEventListener('click',() => { addToFavorites(movie, addToFavoritesButton);
+});
+    });
 }
 
 //Add the movie in localStorage
-function addToFavorites(movie){
+function addToFavorites(movie, button) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    //Check if movie is already in favorites
+    if (!favorites.find(favorite => favorite.id === movie.id)) {
     favorites.push(movie);
     localStorage.setItem('favorites', JSON.stringify(favorites));
+    button.textContent = 'Added to favorites';
+    button.disabled = true;
+    button.classList.remove ('bg-yellow-400', 'hover:bg-yellow-500');
+    button.classList.add ('bg-gray-400');
 //Alert shows that movie added to localStorage
 alert (`${movie.title} has been added to favorites`);
+}
 }
 
 // get header form and input html element and store both into variables
