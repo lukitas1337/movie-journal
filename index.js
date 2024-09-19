@@ -24,7 +24,7 @@ function showMovies(data){
         movieEl.classList.add('relative','border-2', 'border-gray-800', 'text-center', 'bg-gray-100', 'p-4', 'shadow-md', 'flex', 'flex-col');
         movieEl.innerHTML = `
         <img id="movie-image" class="w-full h-auto" src="${IMG_URL+poster_path}" alt="${title}">
-                <div class="flex-grow p-4 border-t-2 border-gray-800 flex flex-col justify-between border-solid">
+                <div class="flex-grow border-t-2 border-gray-800 flex flex-col justify-between border-solid">
                     <h2 id="movie-title" class="text-xl font-semibold">${title}
                     </h2>
                     <p id="release-year" class="py-4 text-sm">${release_date}
