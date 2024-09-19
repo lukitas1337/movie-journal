@@ -15,7 +15,7 @@ function showMovies(data){
         movieEl.classList.add('relative', 'border-2', 'border-gray-800', 'text-center', 'bg-gray-100', 'p-4', 'shadow-md', 'flex', 'flex-col');
         movieEl.innerHTML = `
         <img id="movie-image" class="w-full h-auto" src="${IMG_URL+poster_path}" alt="${title}">
-                <div class="flex-grow p-4 border-t-2 border-gray-800 flex flex-col justify-between border-solid">
+                <div id='button-container' class="flex-grow border-t-2 border-gray-800 flex flex-col justify-between border-solid">
                     <h2 id="movie-title" class="text-xl font-semibold">${title}
                     </h2>
                     <p id="release-year" class="py-4 text-sm">${release_date}
@@ -66,10 +66,12 @@ function addReview(movie, movieEl) { // Add movieEl as a parameter
     reviewInput.placeholder = 'Write your review here...';
     reviewInput.classList.add('review-input', 'border', 'border-gray-500', 'w-full', 'p-2', 'my-2');
 
+    // uppercase w-full px-6 py-2 bg-red-500 hover:bg-red-800 text-white
+
     // Create a button to submit the review
     const submitReviewButton = document.createElement('button');
     submitReviewButton.innerText = 'Submit Review';
-    submitReviewButton.classList.add('submit-review-button', 'bg-blue-500', 'hover:bg-blue-700', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded');
+    submitReviewButton.classList.add('submit-review-button', 'bg-blue-500', 'hover:bg-blue-700', 'text-white', 'uppercase', 'py-2', 'px-4');
 
     // Append the input field and button to the movie element
     movieEl.appendChild(reviewInput);
